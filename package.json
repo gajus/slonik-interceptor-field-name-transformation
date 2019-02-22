@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "camelcase": "^5.0.0",
-    "slonik": "^14.17.1"
+    "slonik": "^14.19.0"
   },
   "description": "Transforms Slonik query result field names.",
   "devDependencies": {
