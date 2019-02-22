@@ -1,5 +1,5 @@
 // @flow
 
 export {
-  createFieldNameTransformationMiddleware
+  createFieldNameTransformationInterceptor
 } from './factories';
