@@ -33,6 +33,7 @@ test('transforms field names to camelcase', (t) => {
           tableID: 1
         }
       ],
+      notices: [],
       oid: null,
       rowAsArray: false,
       rowCount: 1,
