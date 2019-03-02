@@ -29,26 +29,25 @@ export default (configuration: ConfigurationType): InterceptorType => {
   const fieldTest = configuration.test || underscoreFieldTest;
 
   return {
-    afterQueryExecution: (context, query, result) => {
-      const fieldNames = result.fields.map((field) => {
+    transformRow: (context, query, row, fields) => {
+      const formattedFields = fields.map((field) => {
         return {
           formatted: fieldTest(field) ? camelcase(field.name) : field.name,
           original: field.name
         };
       });
 
-      return {
-        ...result,
-        rows: result.rows.map((row) => {
-          const newRow = {};
+      const transformedRow = {};
 
-          for (const fieldName of fieldNames) {
-            newRow[fieldName.formatted] = row[fieldName.original];
-          }
+      for (const field of formattedFields) {
+        if (typeof field.formatted !== 'string') {
+          throw new TypeError('Unexpected field name type.');
+        }
 
-          return newRow;
-        })
-      };
+        transformedRow[field.formatted] = row[field.original];
+      }
+
+      return transformedRow;
     }
   };
 };

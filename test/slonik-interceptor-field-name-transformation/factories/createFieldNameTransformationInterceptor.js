@@ -9,45 +9,22 @@ test('transforms field names to camelcase', (t) => {
     format: 'CAMEL_CASE'
   });
 
-  const afterQueryExecution = interceptor.afterQueryExecution;
+  const transformRow = interceptor.transformRow;
 
-  if (!afterQueryExecution) {
+  if (!transformRow) {
     throw new Error('Unexpected state.');
   }
 
-  const result = afterQueryExecution(
+  const result = transformRow(
     createQueryContext(),
     {
-      sql: 'SELECT 1'
+      sql: 'SELECT 1',
+      values: []
     },
     {
-      command: 'SELECT',
-      fields: [
-        {
-          columnID: 1,
-          dataTypeID: 1,
-          dataTypeModifier: 1,
-          dataTypeSize: 1,
-          format: '',
-          name: 'foo_bar',
-          tableID: 1
-        }
-      ],
-      notices: [],
-      oid: null,
-      rowAsArray: false,
-      rowCount: 1,
-      rows: [
-        {
-          foo_bar: 1
-        }
-      ]
-    }
-  );
-
-  t.deepEqual(result, {
-    command: 'SELECT',
-    fields: [
+      foo_bar: 1
+    },
+    [
       {
         columnID: 1,
         dataTypeID: 1,
@@ -57,14 +34,10 @@ test('transforms field names to camelcase', (t) => {
         name: 'foo_bar',
         tableID: 1
       }
-    ],
-    oid: null,
-    rowAsArray: false,
-    rowCount: 1,
-    rows: [
-      {
-        fooBar: 1
-      }
     ]
+  );
+
+  t.deepEqual(result, {
+    fooBar: 1
   });
 });
