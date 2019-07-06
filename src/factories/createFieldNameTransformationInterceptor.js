@@ -1,6 +1,9 @@
 // @flow
 
 import camelcase from 'camelcase';
+import {
+  map
+} from 'inline-loops.macro';
 import type {
   FieldType,
   InterceptorType
@@ -30,7 +33,7 @@ export default (configuration: ConfigurationType): InterceptorType => {
 
   return {
     transformRow: (context, query, row, fields) => {
-      const formattedFields = fields.map((field) => {
+      const formattedFields = map(fields, (field) => {
         return {
           formatted: fieldTest(field) ? camelcase(field.name) : field.name,
           original: field.name
