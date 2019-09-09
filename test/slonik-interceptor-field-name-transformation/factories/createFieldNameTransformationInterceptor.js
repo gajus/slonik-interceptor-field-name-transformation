@@ -6,7 +6,7 @@ import createFieldNameTransformationInterceptor from '../../../src/factories/cre
 
 test('transforms field names to camelcase', (t) => {
   const interceptor = createFieldNameTransformationInterceptor({
-    format: 'CAMEL_CASE'
+    format: 'CAMEL_CASE',
   });
 
   const transformRow = interceptor.transformRow;
@@ -19,10 +19,10 @@ test('transforms field names to camelcase', (t) => {
     createQueryContext(),
     {
       sql: 'SELECT 1',
-      values: []
+      values: [],
     },
     {
-      foo_bar: 1
+      foo_bar: 1,
     },
     [
       {
@@ -32,12 +32,12 @@ test('transforms field names to camelcase', (t) => {
         dataTypeSize: 1,
         format: '',
         name: 'foo_bar',
-        tableID: 1
-      }
+        tableID: 1,
+      },
     ]
   );
 
   t.deepEqual(result, {
-    fooBar: 1
+    fooBar: 1,
   });
 });

@@ -2,11 +2,11 @@
 
 import camelcase from 'camelcase';
 import {
-  map
+  map,
 } from 'inline-loops.macro';
 import type {
   FieldType,
-  InterceptorType
+  InterceptorType,
 } from 'slonik';
 
 /**
@@ -15,7 +15,7 @@ import type {
  */
 type ConfigurationType = {|
   +format: 'CAMEL_CASE',
-  +test?: (field: FieldType) => boolean
+  +test?: (field: FieldType) => boolean,
 |};
 
 const underscoreFieldRegex = /^[a-z0-9_]+$/;
@@ -33,11 +33,13 @@ export default (configuration: ConfigurationType): InterceptorType => {
 
   return {
     transformRow: (context, query, row, fields) => {
+      // $FlowFixMe
       if (!context.formattedFields) {
+        // $FlowFixMe
         context.formattedFields = map(fields, (field) => {
           return {
             formatted: fieldTest(field) ? camelcase(field.name) : field.name,
-            original: field.name
+            original: field.name,
           };
         });
       }
@@ -55,6 +57,6 @@ export default (configuration: ConfigurationType): InterceptorType => {
       }
 
       return transformedRow;
-    }
+    },
   };
 };
