@@ -33,12 +33,16 @@ export default (configuration: ConfigurationType): InterceptorType => {
 
   return {
     transformRow: (context, query, row, fields) => {
-      const formattedFields = map(fields, (field) => {
-        return {
-          formatted: fieldTest(field) ? camelcase(field.name) : field.name,
-          original: field.name
-        };
-      });
+      if (!context.formattedFields) {
+        context.formattedFields = map(fields, (field) => {
+          return {
+            formatted: fieldTest(field) ? camelcase(field.name) : field.name,
+            original: field.name
+          };
+        });
+      }
+
+      const formattedFields = context.formattedFields;
 
       const transformedRow = {};
 
