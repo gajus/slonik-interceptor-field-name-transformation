@@ -17,5 +17,6 @@ export default (): QueryContextType => {
       },
     },
     poolId: '1',
+    sandbox: {},
   };
 };

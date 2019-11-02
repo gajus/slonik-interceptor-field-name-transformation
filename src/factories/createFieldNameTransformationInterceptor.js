@@ -33,10 +33,8 @@ export default (configuration: ConfigurationType): InterceptorType => {
 
   return {
     transformRow: (context, query, row, fields) => {
-      // $FlowFixMe
-      if (!context.formattedFields) {
-        // $FlowFixMe
-        context.formattedFields = map(fields, (field) => {
+      if (!context.sandbox.formattedFields) {
+        context.sandbox.formattedFields = map(fields, (field) => {
           return {
             formatted: fieldTest(field) ? camelcase(field.name) : field.name,
             original: field.name,
@@ -44,7 +42,7 @@ export default (configuration: ConfigurationType): InterceptorType => {
         });
       }
 
-      const formattedFields = context.formattedFields;
+      const formattedFields = context.sandbox.formattedFields;
 
       const transformedRow = {};
 
