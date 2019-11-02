@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "camelcase": "^5.3.1",
-    "core-js": "^3.3.1",
-    "slonik": "^19.0.4"
+    "core-js": "^3.3.6",
+    "slonik": "^19.5.0"
   },
   "description": "Transforms Slonik query result field names.",
   "devDependencies": {
@@ -35,14 +35,14 @@
     "babel-plugin-macros": "^2.6.1",
     "babel-plugin-transform-export-default-name": "^2.0.4",
     "coveralls": "^3.0.7",
-    "eslint": "^6.5.1",
-    "eslint-config-canonical": "^17.7.0",
-    "flow-bin": "^0.109.0",
+    "eslint": "^6.6.0",
+    "eslint-config-canonical": "^17.8.0",
+    "flow-bin": "^0.111.1",
     "flow-copy-source": "^2.0.8",
     "husky": "^3.0.9",
     "inline-loops.macro": "^1.2.2",
     "nyc": "^14.1.1",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^15.13.29",
     "sinon": "^7.5.0"
   },
   "engines": {

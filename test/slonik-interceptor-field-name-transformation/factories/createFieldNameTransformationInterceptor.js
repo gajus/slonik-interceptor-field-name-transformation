@@ -34,7 +34,7 @@ test('transforms field names to camelcase', (t) => {
         name: 'foo_bar',
         tableID: 1,
       },
-    ]
+    ],
   );
 
   t.deepEqual(result, {
