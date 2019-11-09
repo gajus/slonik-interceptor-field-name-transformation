@@ -26,13 +26,8 @@ test('transforms field names to camelcase', (t) => {
     },
     [
       {
-        columnID: 1,
-        dataTypeID: 1,
-        dataTypeModifier: 1,
-        dataTypeSize: 1,
-        format: '',
+        dataTypeId: 1,
         name: 'foo_bar',
-        tableID: 1,
       },
     ],
   );
