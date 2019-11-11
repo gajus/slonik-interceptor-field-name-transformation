@@ -21,7 +21,7 @@
   "dependencies": {
     "camelcase": "^5.3.1",
     "core-js": "^3.4.0",
-    "slonik": "^21.0.0"
+    "slonik": "^21.4.0"
   },
   "description": "Transforms Slonik query result field names.",
   "devDependencies": {
