@@ -61,5 +61,6 @@
     "lint": "eslint ./src ./test && tsc --noEmit",
     "test": "NODE_ENV=test nyc ava --verbose --serial"
   },
+  "typings": "./dist/src/index.d.ts",
   "version": "1.2.0"
 }
