@@ -50,7 +50,7 @@
     "format"
   ],
   "license": "BSD-3-Clause",
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "name": "slonik-interceptor-field-name-transformation",
   "repository": {
     "type": "git",
