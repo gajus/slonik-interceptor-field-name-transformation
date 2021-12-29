@@ -63,6 +63,6 @@
   "typings": "./dist/src/index.d.ts",
   "version": "1.2.0",
   "peerDependencies": {
-    "slonik": "*"
+    "slonik": "<27"
   }
 }
