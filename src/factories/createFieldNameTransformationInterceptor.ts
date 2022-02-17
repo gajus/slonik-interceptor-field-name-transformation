@@ -40,7 +40,9 @@ export const createFieldNameTransformationInterceptor = (configuration: Configur
         }
       }
 
-      const {formattedFields} = context.sandbox;
+      const {
+        formattedFields,
+      } = context.sandbox;
 
       const transformedRow = {};
 
