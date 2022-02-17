@@ -16,7 +16,7 @@
     ]
   },
   "dependencies": {
-    "camelcase": "^6.2.1""
+    "camelcase": "^6.2.1"
   },
   "description": "Transforms Slonik query result field names.",
   "devDependencies": {
