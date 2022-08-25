@@ -1,7 +1,7 @@
 import camelcase from 'camelcase';
 import type {
-  FieldType,
-  InterceptorType,
+  Field,
+  Interceptor,
 } from 'slonik';
 
 /**
@@ -10,16 +10,16 @@ import type {
  */
 type Configuration = {
   format: 'CAMEL_CASE',
-  test?: (field: FieldType) => boolean,
+  test?: (field: Field) => boolean,
 };
 
 const underscoreFieldRegex = /^[a-z0-9_]+$/u;
 
-const underscoreFieldTest = (field: FieldType) => {
+const underscoreFieldTest = (field: Field) => {
   return underscoreFieldRegex.test(field.name);
 };
 
-export const createFieldNameTransformationInterceptor = (configuration: Configuration): InterceptorType => {
+export const createFieldNameTransformationInterceptor = (configuration: Configuration): Interceptor => {
   if (configuration.format !== 'CAMEL_CASE') {
     throw new Error('Unsupported format.');
   }
@@ -40,7 +40,9 @@ export const createFieldNameTransformationInterceptor = (configuration: Configur
         }
       }
 
-      const {formattedFields} = context.sandbox;
+      const {
+        formattedFields,
+      } = context.sandbox;
 
       const transformedRow = {};
 

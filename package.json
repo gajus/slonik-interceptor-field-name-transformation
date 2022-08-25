@@ -61,8 +61,8 @@
     "test": "NODE_ENV=test nyc ava --verbose --serial"
   },
   "typings": "./dist/src/index.d.ts",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "peerDependencies": {
-    "slonik": "*"
+    "slonik": ">=27.0.0"
   }
 }

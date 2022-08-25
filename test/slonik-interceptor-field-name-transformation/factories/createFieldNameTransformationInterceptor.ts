@@ -9,7 +9,9 @@ test('transforms field names to camelcase', (t) => {
     format: 'CAMEL_CASE',
   });
 
-  const {transformRow} = interceptor;
+  const {
+    transformRow,
+  } = interceptor;
 
   if (!transformRow) {
     throw new Error('Unexpected state.');
