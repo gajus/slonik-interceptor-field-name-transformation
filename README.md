@@ -8,6 +8,9 @@
 
 Transforms [Slonik](https://github.com/gajus/slonik) query result field names.
 
+> [!WARNING]
+> Deprecated in favor of https://github.com/gajus/slonik monorepo.
+
 ## Motivation
 
 This interceptor removes the necessity to alias field names, e.g.
